@@ -1,6 +1,8 @@
 /*
 Theme Name: SZPier
 Version: 1.0
+Author:Krystian Nikiel
+Author URI: http://krystian-nikiel.pl/
 */
 
 body
@@ -24,8 +26,9 @@ body
   -webkit-display: -webkit-box;
   background-color: white;
   -webkit-box-shadow: 1px 19px 26px 10px rgba(0,0,0,0.75);
--moz-box-shadow: 1px 19px 26px 10px rgba(0,0,0,0.75);
-box-shadow: 1px 19px 26px 10px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 19px 26px 10px rgba(0,0,0,0.75);
+  box-shadow: 1px 19px 26px 10px rgba(0,0,0,0.75);
+  overflow: hidden;
 }
 .top-baner{
   width: 1200px;
@@ -86,9 +89,9 @@ nav{
   padding: 3px 0 3px 0;
 }
 .tytul-akt{
-display: table-cell;
-border-radius: 0;
-padding: 5px;
+  display: table-cell;
+  border-radius: 0;
+  padding: 5px;
 }
 @media all and (max-width:1000px) {
   .tytul, .tytul-akt{
@@ -106,13 +109,21 @@ padding: 5px;
   font-size: 1.3em;
   padding: 3px 0 3px 0;
   display: inline-block;
+  margin: 0;
 }
 .panel-heading h3{
-  margin-top: 0;
+  margin: 0;
 }
 
 
 .box-sg, .box-sg2, .box-akt, .box-sg3{
+  width: 830px;
+  text-align: center;
+  float: left;
+  margin: auto;
+  margin: 21px;
+}
+.left-box{
   width: 830px;
   text-align: center;
   float: left;
@@ -125,17 +136,6 @@ padding: 5px;
   text-align: left;
   padding-bottom: 150px;
   padding-top: 30px;
-}
-.box-sg2{
-  width: 280px;
-  float: right;
-  margin: 20px;
-}
-.box-sg3{
-  margin: 0 20px;;
-    width: 280px;
-    float: right;
-
 }
 .box-sg2-1, .box-sg2-2{
   width: 98.7%;
@@ -200,17 +200,17 @@ footer{
 }
 .akt{
   width: 99.59%;
-height: 210px;
-text-align: left;
-border-bottom: 1px solid #5096b9;
-border-left: 1px solid #5096b9;
-border-right: 1px solid #5096b9;
-background-color: #f1f1f1;
-border-top: 1px solid #5096b9;
-padding-top: 5px;
-margin-bottom: 10px;
-box-shadow: 0 0 4px rgba(14, 14, 14, 0.15);
-margin-top: 5px;
+  height: 210px;
+  text-align: left;
+  border-bottom: 1px solid #5096b9;
+  border-left: 1px solid #5096b9;
+  border-right: 1px solid #5096b9;
+  background-color: #f1f1f1;
+  border-top: 1px solid #5096b9;
+  padding-top: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 4px rgba(14, 14, 14, 0.15);
+  margin-top: 5px;
 }
 .akt img{
   width: 150px;
@@ -250,13 +250,13 @@ margin-top: 5px;
   }
   .akt1{
     width: 93%;
+  }
+  .akt img{
+    width: 15em;
+    height: 15em;
+  }
 }
-.akt img{
-  width: 15em;
-  height: 15em;
-}
-}
-  @media all and (max-width:600px) {
+@media all and (max-width:600px) {
   .akt{
     border: 1px solid #5096b9;
     margin-top: 19px;
@@ -335,12 +335,15 @@ p.autor, p.data{
 
 }
 .right-box{
-float: right;
-height: 100%;
-float: right;
-text-align: initial;
-margin: auto;
+  float: right;
+  height: 100%;
+  text-align: initial;
+  margin: auto;
+  width: 280px;
+  margin: 20px;
+  text-align: center;
 }
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -418,14 +421,14 @@ margin: auto;
     width: 97%;
 
   }
-.akt-main-box{
-  margin-top: 50px;
-  width: 100%;
-  margin-left: 2%;
-}
-.akt-mega-box > h3 > a{
-  width: 90%;
-}
+  .akt-main-box{
+    margin-top: 50px;
+    width: 100%;
+    margin-left: 2%;
+  }
+  .akt-mega-box > h3 > a{
+    width: 90%;
+  }
 }
 .akt-mega-box img{
   float: left;
@@ -435,13 +438,13 @@ margin: auto;
 .wp-caption{
   float: left;
 }
-.panel-body a{
+.panel-body a, .panel-body p {
   width: 100%;
   height: 100px;
   text-decoration: none;
   color: black;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
-  background-color: #E5E5E5;
+  padding: 5px;
 }
 .panel-body label{
   display: none;
@@ -456,16 +459,16 @@ margin: auto;
 }
 .searchform input#s{
   font-family: 'Open Sans', sans-serif;
-font-weight: 400;
-line-height: 23px;
-font-size: 1.0em;
-background: #f1f1f1;
-color: #2d2d2d;
--webkit-font-smoothing: antialiased;
-width: 90%;
-margin: 10px 0 10px;
-background-color: #fff;
-padding: 2px;
+  font-weight: 400;
+  line-height: 23px;
+  font-size: 1.0em;
+  background: #f1f1f1;
+  color: #2d2d2d;
+  -webkit-font-smoothing: antialiased;
+  width: 90%;
+  margin: 10px 0 10px;
+  background-color: #fff;
+  padding: 2px;
 }
 .searchform input#searchsubmit{
   padding: 5px;
@@ -482,65 +485,22 @@ padding: 2px;
   color: white;
 }
 .panel-body ul{
-list-style-type: none;
-padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 .panel-body select{
   font-family: 'Open Sans', sans-serif;
-font-weight: 400;
-line-height: 23px;
-font-size: 1.0em;
-background: #f1f1f1;
-color: #2d2d2d;
--webkit-font-smoothing: antialiased;
-width: 90%;
-margin: 0 0 40px;
-background-color: #fff;
-box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
-padding: 10px;
-}
-
-
-.panell {
-    position: fixed;
-    top: 50px;
-    left: -272px;
-    z-index: 99999;
-    transition: left 0.5s ease-out 0s;
-}
-
-.panell:hover {
-    left: 0;
-}
-
-.panell .contentt {
-    width: 250px;
-    height: 300px;
-    padding: 10px;
-    border-top: 2px solid #103480;
-    border-right: none;
-    border-bottom: 2px solid #103480;
-    border-left: 2px solid #103480;
-    z-index: 20;
-    background: #FFFFFF;
-    position: relative;
-    border-radius: 10px 0 0 10px;
-}
-
-.panell .titlee {
-    width: 150px;
-    border: 2px solid #103480;
-    background: #103480;
-    color: #FFFFFF;
-    font-weight: bold;
-    border-radius: 10px;
-    padding: 5px 5px 25px 5px;
-    text-align: center;
-    position: relative;
-    top: 140px;
-    left: -90px;
-    transform: rotate(-90deg);
-    z-index: 1;
+  font-weight: 400;
+  line-height: 23px;
+  font-size: 1.0em;
+  background: #f1f1f1;
+  color: #2d2d2d;
+  -webkit-font-smoothing: antialiased;
+  width: 90%;
+  margin: 0 0 40px;
+  background-color: #fff;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+  padding: 10px;
 }
 #wpcf7-f4-o1 > form > p:nth-child(6) > input
 {
@@ -653,21 +613,21 @@ div.wpcf7-response-output{
   width: 25% !important;
 }
 .button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
 .button2:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 #gallery-1 img{
   border: none;

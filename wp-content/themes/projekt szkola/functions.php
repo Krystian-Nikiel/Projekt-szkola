@@ -3,6 +3,41 @@
 function theme_enqueue_styles() {
     wp_enqueue_style( 'main-style', get_stylesheet_uri() );
 }
+add_filter( 'excerpt_length', function( $length ){
+	return 50;
+}, 999 );
+
+add_filter( 'excerpt_more', function( $more ){
+
+	global $post;
+	return ' <a href="'. get_permalink($post->ID) . '">Czytaj więcej</a>';
+
+}, 999 );
+
+add_filter( 'post_thumbnail_html', function ( $html, $post_id, $post_image_id ) {
+
+	$html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
+	return $html;
+
+}, 10, 3 );
+
+add_action( 'pre_get_posts', function( $query ){
+
+	$paged = ( get_query_var( 'page' ) ) ? absint( get_query_var( 'page' ) ) : 1;
+
+	$query->set( 'posts_per_page', 4 );
+	$query->set( 'ignore_sticky_posts', true );
+	$query->set( 'paged', $paged );
+
+});
+
+add_action( 'template_redirect', function(){
+
+	if( is_404() ){
+		wp_redirect( site_url() );
+	}
+
+});
 
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
@@ -28,14 +63,15 @@ register_sidebar ( array(
   'id' 			  => 'proba',
   'name'          => 'main-sidebar',
   'description'   => 'Pasek boczny',
-  'before_widget' => '<br><div class="col-md-12"><div class="panel panel-default no-corners">',
-  'after_widget'  => '</div></div></div>',
-  'before_title'  => '<div class="panel-heading"><h3 class="panel-title">',
+  'before_widget' => '<div class="animated fadeIn">',
+  'after_widget'  => '</div>',
+  'before_title'  => '<h3 class="panel-title">',
   'after_title'   => '</h3></div><div class="panel-body">'
 ));
 function add_custom_script() {
 
     wp_enqueue_script( 'custom-script', get_stylesheet_directory_uri() . "/js/custom-scripts.js", array('jquery'), "1.0", true );
+      wp_enqueue_script( 'facebook_part1', get_stylesheet_directory_uri() . "/js/facebook_part1.", array('jquery'), "1.0", true );
   }
   add_action( 'wp_enqueue_scripts', 'add_custom_script' );
 function custom_theme_setup() {
@@ -43,22 +79,3 @@ add_theme_support( 'post-thumbnails' );
 }
 add_action( 'after_setup_theme', 'custom_theme_setup' );
 require_once( TEMPLATEPATH . '/inc/wp-customizer.php' );
-
-
-
-function new_excerpt_more($more) {
-       global $post;
-    return '<a href="'. get_permalink($post->ID) . '">More...</a>';
-}
-add_filter('excerpt_more', 'new_excerpt_more');
-$args = array(
-	'type'            => 'monthly',
-	'limit'           => '5',
-	'format'          => 'html',
-	'before'          => '<div class="akt"',
-	'after'           => '</div>',
-	'show_post_count' => false,
-	'echo'            => 1,
-	'order'           => 'DESC',
-        'post_type'     => 'post'
-);
