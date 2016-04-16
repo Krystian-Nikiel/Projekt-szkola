@@ -1,0 +1,27 @@
+<?php if ( have_posts() ) :
+			while ( have_posts() ) : the_post(); ?>
+
+
+			<?php the_content(); ?>
+
+	<?php endwhile; endif; ?>
+
+
+
+
+/* wyszukinie na stonie */
+
+	<?php get_search_form(); ?>
+	<?php the_field('trescglownyblok');?>
+
+
+	<?php
+	echo "<img src=" . $url . " />";      wywoładnie zdjecia
+	?>
+
+	<?php
+	$test=get_post_thumbnail_id($post->ID);
+	$test=wp_get_attachment_url($test);
+	?>
+	<img src="<?php  echo $test ?>" alt=""/>
+		<?php echo do_shortcode( '[contact-form-7 id="4" title="Formularz 1" html_class="formform"]' ); ?>
