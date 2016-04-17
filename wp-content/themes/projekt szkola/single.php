@@ -1,7 +1,7 @@
 <?php get_header();?>
 
 <div class="left-box">
-<?php get_template_part('template-parts/loop', 'single'); ?>
+  <?php get_template_part('template-parts/loop', 'single'); ?>
 </div>
 
 
