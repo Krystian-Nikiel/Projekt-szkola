@@ -2,7 +2,7 @@
 			<?php echo get_theme_mod("footer_copyright", "Zespół Szkół Pierściec- wszelkie prawa zastrzeżone"); ?>
 	</footer>
 </div>
-</div>
+
 <?php wp_footer(); ?>
 
 

@@ -11,8 +11,12 @@
 
         <div class="akt1">
         <em><?php the_title(); ?></em>
-        <p class="autor"><?php the_author(); ?></p>
-        <p class="data"><?php the_date(); ?> </p>
+        <p class="author"><?php the_author(); ?>
+        <?php the_date(); ?></p>
         <?php the_excerpt(); ?>
+
+
+
         </div>
-      </div>
+
+    </div>

@@ -10,7 +10,7 @@ add_filter( 'excerpt_length', function( $length ){
 add_filter( 'excerpt_more', function( $more ){
 
 	global $post;
-	return ' <a href="'. get_permalink($post->ID) . '">Czytaj więcej</a>';
+	return ' <a href="'. get_permalink($post->ID) . '" class="read-more">Czytaj więcej</a>';
 
 }, 999 );
 
@@ -63,7 +63,7 @@ register_sidebar ( array(
   'id' 			  => 'proba',
   'name'          => 'main-sidebar',
   'description'   => 'Pasek boczny',
-  'before_widget' => '<div class="animated fadeIn">',
+  'before_widget' => '<div class="margintop animated fadeIn">',
   'after_widget'  => '</div>',
   'before_title'  => '<h3 class="panel-title">',
   'after_title'   => '</h3></div><div class="panel-body">'
